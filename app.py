@@ -25,13 +25,14 @@ weight_units = {
 @app.route('/', methods=['GET', 'POST'])
 def length():
     result = "Enter a value and select units to convert."
+    to_unit = ""
     if request.method == 'POST':
         value = float(request.form['value'])
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
 
         base = value * length_units[from_unit]
-        result = round(base / length_units[to_unit],2), to_unit
+        result = round(base / length_units[to_unit],2)
     return render_template('length.html', result=result, to_unit=to_unit)
 
 @app.route('/weight')
