@@ -37,7 +37,16 @@ def length():
 
 @app.route('/weight')
 def weight():
-    return render_template('weight.html')
+    result = "Enter a value and select units to convert."
+    to_unit = ""
+    if request.method == 'POST':
+        value = float(request.form['value'])
+        from_unit = request.form['from_unit']
+        to_unit = request.form['to_unit']
+
+        base = value * weight_units[from_unit]
+        result = round(base / weight_units[to_unit],2)
+    return render_template('weight.html', result=result, to_unit=to_unit)
 
 @app.route('/temperature')
 def temperature():
