@@ -48,7 +48,7 @@ def weight():
         result = round(base / weight_units[to_unit],2)
     return render_template('weight.html', result=result, to_unit=to_unit)
 
-@app.route('/temperature')
+@app.route('/temperature', methods=['POST'])
 def temperature():
     result = "Enter a value and select units to convert."
     to_unit = ""
