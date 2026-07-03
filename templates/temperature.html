@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>DM Unit Converter - Length</title>
+    </head>
+    <body>
+
+        <nav>
+            <a href="{{ url_for('length') }}">Length</a> |
+            <a href="{{ url_for('weight') }}">Weight</a> |
+            <a href="{{ url_for('temperature') }}">Temperature</a>
+        </nav>
+
+        <h1>Length Converter</h1>
+    
+        <label>Enter length:</label>
+    <form action="/" method="post">
+            <input 
+            type="number" 
+            name="value" 
+            id="value" 
+            step="0.01">
+        <select name="from_unit">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+        <select name="to_unit">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+        <button id="convert">Convert</button>
+    </form>
+    <p>Result: {{ result }} {{ to_unit }}</p>
+    </body>
+</html>
+        </select>
+        <button id="convert">Convert</button>
+    </form>
+    <p>Result: {{ result }} {{ to_unit }}</p>
+    </body>
+</html>

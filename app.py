@@ -50,4 +50,24 @@ def weight():
 
 @app.route('/temperature')
 def temperature():
-    return render_template('temperature.html')
+    result = "Enter a value and select units to convert."
+    to_unit = ""
+    if request.method == 'POST':
+        value = float(request.form['value'])
+        from_unit = request.form['from_unit']
+        to_unit = request.form['to_unit']
+
+        if from_unit == 'celsius':
+            base = value
+        elif from_unit == 'fahrenheit':
+            base = (value - 32) * 5/9
+        elif from_unit == 'kelvin':
+            base = value - 273.15
+
+        if to_unit == 'celsius':
+            result = round(base, 2)
+        elif to_unit == 'fahrenheit':
+            result = round((base * 9/5) + 32, 2)
+        elif to_unit == 'kelvin':
+            result = round(base + 273.15, 2)
+    return render_template('temperature.html', result=result, to_unit=to_unit)
