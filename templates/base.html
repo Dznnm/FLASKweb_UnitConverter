@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>DM Unit Converter - Length</title>
+    </head>
+    <body>
+
+        <nav>
+            <a href="{{ url_for('length') }}">Length</a> |
+            <a href="{{ url_for('weight') }}">Weight</a> |
+            <a href="{{ url_for('temperature') }}">Temperature</a>
+        </nav>
+
+        <hr>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
