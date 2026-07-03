@@ -35,7 +35,7 @@ def length():
         result = round(base / length_units[to_unit],2)
     return render_template('length.html', result=result, to_unit=to_unit)
 
-@app.route('/weight')
+@app.route('/weight', methods=['GET', 'POST'])
 def weight():
     result = "Enter a value and select units to convert."
     to_unit = ""
@@ -48,7 +48,7 @@ def weight():
         result = round(base / weight_units[to_unit],2)
     return render_template('weight.html', result=result, to_unit=to_unit)
 
-@app.route('/temperature', methods=['POST'])
+@app.route('/temperature', methods=['GET', 'POST'])
 def temperature():
     result = "Enter a value and select units to convert."
     to_unit = ""
