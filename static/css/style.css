@@ -1,9 +1,8 @@
 body {
-    background-color: red;
+    background-color: lightgray;
     font-family: Arial;
 }
 
 h1 {
-    color: yellow;
-    font-size: 50px;
+    color: blue;
 }
