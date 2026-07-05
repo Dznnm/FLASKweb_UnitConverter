@@ -1,8 +1,30 @@
 body {
-    background-color: lightgray;
-    font-family: Arial;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
 h1 {
+    color: blue;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 150px;
+    align-items: center;
+    border: 2px solid red;
+}
+
+a {
+    text-decoration: none;
     color: blue;
 }
