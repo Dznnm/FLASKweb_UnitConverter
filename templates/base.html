@@ -6,16 +6,14 @@
             href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
-      
         <div class="container">
-            
+            <h1>DM Unit Converter</h1>
             <nav>
                 <a href="{{ url_for('length') }}">Length</a>
                 <a href="{{ url_for('weight') }}">Weight</a>
                 <a href="{{ url_for('temperature') }}">Temperature</a>
             </nav>
-
-        <hr>
+            <hr>
 
         {% block content %}
         {% endblock %}

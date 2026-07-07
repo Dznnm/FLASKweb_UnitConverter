@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-
-        <h1>Length Converter</h1>
     
-        <label>Enter length:</label>
+        <label>Enter Length:</label>
     <form action="/" method="post">
-            <input 
+        <div class="form-control">
+            <input
             type="number" 
             name="value" 
             id="value" 
             step="0.01">
+        </div>
+        <hr>
+
+        <div class="form-control">
+        <label>From:</label>
         <select name="from_unit">
             <option value="millimeter">Millimeter</option>
             <option value="centimeter">Centimeter</option>
@@ -20,8 +24,14 @@
             <option value="yard">Yard</option>
             <option value="mile">Mile</option>
         </select>
+        </div>
+
+        <hr>
+        
+        <div class="form-control">
+        <label>Convert to:</label>
         <select name="to_unit">
-            <option value="milimeter">Millimeter</option>
+            <option value="millimeter">Millimeter</option>
             <option value="centimeter">Centimeter</option>
             <option value="meter">Meter</option>
             <option value="kilometer">Kilometer</option>
@@ -30,7 +40,14 @@
             <option value="yard">Yard</option>
             <option value="mile">Mile</option>
         </select>
+        </div>
+
+        <hr>
+
+        <div class="form-control">
         <button id="convert">Convert</button>
+        </div>
+        
     </form>
     <p>Result: {{ result }} {{ to_unit }}</p>
 {% endblock %}
