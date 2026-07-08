@@ -27,7 +27,12 @@ def length():
     result = "Enter a value and select units to convert."
     to_unit = ""
     if request.method == 'POST':
-        value = float(request.form['value'])
+        try:
+            value = float(request.form['value'])
+        except ValueError:
+            result = "Invalid input. Please enter a valid number."
+            return render_template('length.html', result=result, to_unit=to_unit)
+
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
 
@@ -40,7 +45,12 @@ def weight():
     result = "Enter a value and select units to convert."
     to_unit = ""
     if request.method == 'POST':
-        value = float(request.form['value'])
+        try:
+            value = float(request.form['value'])
+        except ValueError:
+            result = "Invalid input. Please enter a valid number."
+            return render_template('weight.html', result=result, to_unit=to_unit)
+
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
 
@@ -53,7 +63,12 @@ def temperature():
     result = "Enter a value and select units to convert."
     to_unit = ""
     if request.method == 'POST':
-        value = float(request.form['value'])
+        try:
+            value = float(request.form['value'])
+        except ValueError:
+            result = "Invalid input. Please enter a valid number."
+            return render_template('temperature.html', result=result, unit_symbol=to_unit)
+        
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
 
