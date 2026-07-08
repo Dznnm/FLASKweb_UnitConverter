@@ -1,26 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-        <h1>Temperature Converter</h1>
-    
-        <label>Enter temperature:</label>
+         <label>Enter Temperature:</label>
     <form action="/temperature" method="post">
-            <input 
+        <div class="form-control">
+            <input
             type="number" 
             name="value" 
             id="value" 
             step="0.01">
+        </div>
+        <hr>
+
+        <div class="form-control">
+        <label>From:</label>
         <select name="from_unit">
             <option value="celsius">Celsius</option>
             <option value="fahrenheit">Fahrenheit</option>
             <option value="kelvin">Kelvin</option>
         </select>
+        </div>
+
+        <hr>
+        
+        <div class="form-control">
+        <label>Convert to:</label>
         <select name="to_unit">
-            <option value="celsius">Celsius</option>
             <option value="fahrenheit">Fahrenheit</option>
+            <option value="celsius">Celsius</option>
             <option value="kelvin">Kelvin</option>
         </select>
+        </div>
+
+        <hr>
+
+        <div class="form-control">
         <button id="convert">Convert</button>
+        </div>
+
     </form>
-    <p>Result: {{ result }} {{ to_unit }}</p>
+    <p>Result: {{ result }} {{ unit_symbol }}</p>
 {% endblock %}

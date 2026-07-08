@@ -64,10 +64,17 @@ def temperature():
         elif from_unit == 'kelvin':
             base = value - 273.15
 
-        if to_unit == 'celsius':
-            result = round(base, 2)
-        elif to_unit == 'fahrenheit':
+        if to_unit == 'fahrenheit':
             result = round((base * 9/5) + 32, 2)
+        elif to_unit == 'celsius':
+            result = round(base, 2)
         elif to_unit == 'kelvin':
             result = round(base + 273.15, 2)
-    return render_template('temperature.html', result=result, to_unit=to_unit)
+
+        if to_unit == 'fahrenheit':
+            unit_symbol = '°F'
+        elif to_unit == 'celsius':
+            unit_symbol = '°C'
+        elif to_unit == 'kelvin':
+            unit_symbol = 'K'
+    return render_template('temperature.html', result=result, unit_symbol=unit_symbol)
