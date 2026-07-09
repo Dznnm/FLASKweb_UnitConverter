@@ -9,9 +9,21 @@
         <div class="container">
             <h1>DM Unit Converter</h1>
             <nav>
-                <a href="{{ url_for('length') }}">Length</a>
-                <a href="{{ url_for('weight') }}">Weight</a>
-                <a href="{{ url_for('temperature') }}">Temperature</a>
+                <a 
+                {% if current_page == 'length' %}
+                    class="active"
+                {% endif %}
+                href="{{ url_for('length') }}">Length</a>
+                <a 
+                {% if current_page == 'weight' %}
+                    class="active"
+                {% endif %}
+                href="{{ url_for('weight') }}">Weight</a>
+                <a 
+                {% if current_page == 'temperature' %}
+                    class="active"
+                {% endif %}
+                href="{{ url_for('temperature') }}">Temperature</a>
             </nav>
             <hr>
 

@@ -26,48 +26,78 @@ weight_units = {
 def length():
     result = "Enter a value and select units to convert."
     to_unit = ""
+    current_page = 'length'
+
     if request.method == 'POST':
         try:
             value = float(request.form['value'])
         except ValueError:
             result = "Invalid input. Please enter a valid number."
-            return render_template('length.html', result=result, to_unit=to_unit)
+            return render_template(
+                'length.html', 
+                result=result, 
+                to_unit=to_unit, 
+                current_page=current_page
+                )
 
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
 
         base = value * length_units[from_unit]
         result = round(base / length_units[to_unit],2)
-    return render_template('length.html', result=result, to_unit=to_unit)
+    return render_template(
+                'length.html', 
+                result=result, 
+                to_unit=to_unit, 
+                current_page=current_page
+                )
 
 @app.route('/weight', methods=['GET', 'POST'])
 def weight():
     result = "Enter a value and select units to convert."
     to_unit = ""
+    current_page = 'weight'
+
     if request.method == 'POST':
         try:
             value = float(request.form['value'])
         except ValueError:
             result = "Invalid input. Please enter a valid number."
-            return render_template('weight.html', result=result, to_unit=to_unit)
+            return render_template(
+                'weight.html', 
+                result=result, 
+                to_unit=to_unit, 
+                current_page=current_page
+                )
 
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
 
         base = value * weight_units[from_unit]
         result = round(base / weight_units[to_unit],2)
-    return render_template('weight.html', result=result, to_unit=to_unit)
+    return render_template(
+                'weight.html', 
+                result=result, 
+                to_unit=to_unit, 
+                current_page=current_page)
 
 @app.route('/temperature', methods=['GET', 'POST'])
 def temperature():
     result = "Enter a value and select units to convert."
-    to_unit = ""
+    unit_symbol = ""
+    current_page = 'temperature'
+
     if request.method == 'POST':
         try:
             value = float(request.form['value'])
         except ValueError:
             result = "Invalid input. Please enter a valid number."
-            return render_template('temperature.html', result=result, unit_symbol=to_unit)
+            return render_template(
+                'temperature.html', 
+                result=result, 
+                unit_symbol=unit_symbol, 
+                current_page=current_page
+                )
         
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
@@ -92,4 +122,9 @@ def temperature():
             unit_symbol = '°C'
         elif to_unit == 'kelvin':
             unit_symbol = 'K'
-    return render_template('temperature.html', result=result, unit_symbol=unit_symbol)
+    return render_template(
+        'temperature.html', 
+        result=result, 
+        unit_symbol=unit_symbol, 
+        current_page=current_page
+        )
