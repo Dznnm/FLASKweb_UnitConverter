@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-         <label>Enter Temperature:</label>
-    <form action="/temperature" method="post">
+         <form action="/temperature" method="post">
+        <label>Enter Temperature:</label>
         <div class="form-control">
             <input
             type="number" 
@@ -10,34 +10,30 @@
             id="value" 
             step="0.01">
         </div>
-        <hr>
 
-        <div class="form-control">
         <label>From:</label>
+        <div class="form-control">
         <select name="from_unit">
             <option value="celsius">Celsius</option>
             <option value="fahrenheit">Fahrenheit</option>
             <option value="kelvin">Kelvin</option>
         </select>
         </div>
-
-        <hr>
         
-        <div class="form-control">
         <label>Convert to:</label>
+        <div class="form-control">
         <select name="to_unit">
+             <option value="celsius">Celsius</option>
             <option value="fahrenheit">Fahrenheit</option>
-            <option value="celsius">Celsius</option>
             <option value="kelvin">Kelvin</option>
+            <option value="pound">Pound</option>
         </select>
         </div>
-
-        <hr>
 
         <div class="form-control">
         <button id="convert">Convert</button>
         </div>
-
+        
     </form>
-    <p>Result: {{ result }} {{ unit_symbol }}</p>
+    <p>Result: {{ result }} {{ to_unit }}</p>
 {% endblock %}

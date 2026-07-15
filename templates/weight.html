@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-         <label>Enter Weight:</label>
-    <form action="/" method="post">
+         <form action="/weight" method="post">
+        <label>Enter Weight:</label>
         <div class="form-control">
             <input
             type="number" 
@@ -10,10 +10,9 @@
             id="value" 
             step="0.01">
         </div>
-        <hr>
 
-        <div class="form-control">
         <label>From:</label>
+        <div class="form-control">
         <select name="from_unit">
             <option value="milligram">Milligram</option>
             <option value="gram">Gram</option>
@@ -22,21 +21,17 @@
             <option value="pound">Pound</option>
         </select>
         </div>
-
-        <hr>
         
-        <div class="form-control">
         <label>Convert to:</label>
+        <div class="form-control">
         <select name="to_unit">
-            <option value="milligram">Milligram</option>
+             <option value="milligram">Milligram</option>
             <option value="gram">Gram</option>
             <option value="kilogram">Kilogram</option>
             <option value="ounce">Ounce</option>
             <option value="pound">Pound</option>
-         </select>
+        </select>
         </div>
-
-        <hr>
 
         <div class="form-control">
         <button id="convert">Convert</button>
